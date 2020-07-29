@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <img src={logo} />
+      <img src={logo} alt="logo" className="logo" />
       <form className="search-form" onSubmit={onSubmit}>
         <input type="text" placeholder="Search Recipes" autoComplete="off" onChange={onChange} value={query} />
         <input type="submit" value="search" />
