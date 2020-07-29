@@ -8,7 +8,9 @@ function App() {
 
   const url = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
-  
+  const getData = () => {
+    
+  }
   return (
     <div className="App">
       <h1> Chunky Dunk </h1>
