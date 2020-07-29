@@ -49,7 +49,7 @@ const App = () => {
         <input type="text" placeholder="Search Recipes" autoComplete="off" onChange={onChange} value={query} />
         <input type="submit" value="search" />
         {alert !== "" && <Alert alert={alert} />}
-      </form>
+      </form> 
       {/* </div> */}
       <div className="recipes">
         {recipes !== [] && recipes.map(recipe => <Recipe recipe={recipe} key={uuidv4()} />)}
