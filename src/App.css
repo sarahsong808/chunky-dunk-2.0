@@ -194,7 +194,7 @@ html {
 
 .alert {
   position: absolute;
-  top: -3rem;
+  top: 10rem;
   left: 0;
   background-color: rgb(233, 72, 72);
   width: calc(100% - 0.4rem);
