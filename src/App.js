@@ -46,14 +46,14 @@ const App = () => {
       {/* <div className="search-bar"> */}
       <img src={logo} alt="logo" className="logo" />
       <form className="search-form" onSubmit={onSubmit}>
-        {alert !== "" && <Alert alert={alert} />}
         <input type="text" placeholder="Search Recipes" autoComplete="off" onChange={onChange} value={query} />
         <input type="submit" value="search" />
+        {alert !== "" && <Alert alert={alert} />}
       </form>
-    {/* </div> */}
-    <div className="recipes">
-      {recipes !== [] && recipes.map(recipe => <Recipe recipe={recipe} key={uuidv4()} />)}
-    </div>
+      {/* </div> */}
+      <div className="recipes">
+        {recipes !== [] && recipes.map(recipe => <Recipe recipe={recipe} key={uuidv4()} />)}
+      </div>
     </div >
   );
 }
