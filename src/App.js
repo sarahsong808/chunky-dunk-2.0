@@ -20,8 +20,12 @@ const App = () => {
   const getData = async () => {
     if (query !== "") {
       const result = await Axios.get(url);
+      if (!result.data.more) {
+        return setAlert('Recipe does not exist')
+      }
       setRecipes(result.data.hits);
       console.log(result);
+      setAlert("");
       setQuery("");
     } else {
       setAlert("Please fill out search")
@@ -39,16 +43,18 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* <div className="search-bar"> */}
       <img src={logo} alt="logo" className="logo" />
       <form className="search-form" onSubmit={onSubmit}>
         {alert !== "" && <Alert alert={alert} />}
         <input type="text" placeholder="Search Recipes" autoComplete="off" onChange={onChange} value={query} />
         <input type="submit" value="search" />
       </form>
-      <div className="recipes">
-        {recipes !== [] && recipes.map(recipe => <Recipe recipe={recipe} key={uuidv4()} />)}
-      </div>
+    {/* </div> */}
+    <div className="recipes">
+      {recipes !== [] && recipes.map(recipe => <Recipe recipe={recipe} key={uuidv4()} />)}
     </div>
+    </div >
   );
 }
 

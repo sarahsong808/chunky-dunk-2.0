@@ -8,7 +8,7 @@ return (
     <div className="recipe">
         <h2>{label}</h2>
         <img src={image} alt={label}/>
-        <a href={url} target="_blank" rel="noopener noreferrer"> Directions </a>
+        <a href={url} target="_blank" rel="noopener noreferrer"> Directions URL </a>
         <button onClick={() => setDisplay(!display)}>Ingredients</button>
         {display && <RecipeDetails ingredients={ingredients}/>}
     </div>
