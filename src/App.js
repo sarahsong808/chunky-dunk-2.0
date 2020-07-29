@@ -4,12 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import Recipe from './components/Recipe.jsx';
 import logo from './assets/logo.png';
+import Alert from './components/Alert.jsx';
 
 const App = () => {
 
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
-
+  const [alert, setAlert] = useState("");
   const APP_ID = "94743f0c";
   const APP_KEY = "01451fab7300ac70516120de63f295cd";
 
@@ -17,10 +18,14 @@ const App = () => {
 
   //wait for info before loading javascript 
   const getData = async () => {
-    const result = await Axios.get(url);
-    setRecipes(result.data.hits);
-    console.log(result);
-    setQuery("");
+    if (query !== "") {
+      const result = await Axios.get(url);
+      setRecipes(result.data.hits);
+      console.log(result);
+      setQuery("");
+    } else {
+      setAlert("Please fill out search")
+    }
   }
   //once you click this button, you will reload page so preventDefault will stop this
   const onSubmit = (e) => {
@@ -36,6 +41,7 @@ const App = () => {
     <div className="App">
       <img src={logo} alt="logo" className="logo" />
       <form className="search-form" onSubmit={onSubmit}>
+        {alert !== "" && <Alert alert={alert} />}
         <input type="text" placeholder="Search Recipes" autoComplete="off" onChange={onChange} value={query} />
         <input type="submit" value="search" />
       </form>
